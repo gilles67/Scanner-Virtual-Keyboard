@@ -1,0 +1,76 @@
+﻿<Window x:Class="Scanner_Virtual_Keyboard.Configuration.ConfigurationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Scanner Virtual Keyboard - Options" Height="394" Width="327" Icon="/Scanner Virtual Keyboard;component/Images/On Screen Keyboard.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Margin="5">
+            <TabControl.Items>
+                <TabItem>
+                    <TabItem.Header>Communication</TabItem.Header>
+                    <Grid Name="PortConfigPanel">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Port de communication</TextBlock>
+                        <ComboBox Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding portName}" ItemsSource="{Binding LsPortNames}" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Bits par seconde</TextBlock>
+                        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding baudRate}" ItemsSource="{Binding LsBaudRates}" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Bits de données</TextBlock>
+                        <ComboBox Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding dataBits}" ItemsSource="{Binding LsDataBits}" />
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Parité</TextBlock>
+                        <ComboBox Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding parity}" ItemsSource="{Binding LsParity}" />
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Bits d'arrêt</TextBlock>
+                        <ComboBox Grid.Row="4" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding stopBits}" ItemsSource="{Binding LsStopBits}" />
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Code de fin de ligne</TextBlock>
+                        <ComboBox Grid.Row="5" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding eolChar}" ItemsSource="{Binding LsReturnChar}" />
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>Clavier</TabItem.Header>
+                    <Grid Name="KeyboardConfigPanel">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Delai de frappe</TextBlock>
+                        <ComboBox Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectedValue="{Binding delayKeystorke}" ItemsSource="{Binding LsDelayKeystorke}" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" >Journal de scan</TextBlock>
+                        <CheckBox Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" IsChecked="{Binding logKeystorke}" />
+
+                    </Grid>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5" Click="Button_Click_Save">Enregister</Button>
+            <Button Grid.Column="1" Margin="5" Click="Button_Click_Cancel" >Annuler</Button>
+        </Grid>
+    </Grid>
+</Window>
